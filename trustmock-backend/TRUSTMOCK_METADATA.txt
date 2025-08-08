@@ -1,0 +1,17 @@
+TRUSTMOCK METADATA (v1.1.0)
+===========================
+- Default repo: InMemoryMockRepository (no DB required)
+- Optional adapters:
+  * DynamoDbMockRepository (AWS SDK v2)
+  * OracleMockRepository (ojdbc11)
+- Splunk client/service: stubs ready for wiring (disabled by default)
+- SidecarProxyApplication: optional reverse proxy
+
+Switching storage:
+- Edit TrustMockApplication bean to return desired repository (DynamoDbMockRepository or OracleMockRepository).
+- Or add a Spring profile and declare beans conditionally.
+
+OpenShift:
+- Deploy backend as one container.
+- Deploy sidecar as another (in same pod or separate service).
+- Point app traffic to /proxy/* if using sidecar.

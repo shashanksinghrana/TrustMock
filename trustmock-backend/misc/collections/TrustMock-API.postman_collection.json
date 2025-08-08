@@ -1,0 +1,182 @@
+{
+	"info": {
+		"name": "TrustMock API",
+		"description": "API collection for TrustMock backend endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mock Endpoints",
+			"item": [
+				{
+					"name": "Upsert Mock",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app\": \"PaymentsApp\",\n  \"service\": \"TransactionService\",\n  \"pin\": \"/api/transactions\",\n  \"payload\": \"{\\\"transactionId\\\":\\\"TXN123456789\\\",\\\"status\\\":\\\"SUCCESS\\\",\\\"amount\\\":500.0}\",\n  \"version\": \"v1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/mock/upsert",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "mock", "upsert"]
+						}
+					}
+				},
+				{
+					"name": "Get Latest Mock",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/mock/latest?app=PaymentsApp&service=TransactionService&pin=/api/transactions",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "mock", "latest"],
+							"query": [
+								{
+									"key": "app",
+									"value": "PaymentsApp"
+								},
+								{
+									"key": "service",
+									"value": "TransactionService"
+								},
+								{
+									"key": "pin",
+									"value": "/api/transactions"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Validate Mock",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app\": \"PaymentsApp\",\n  \"service\": \"TransactionService\",\n  \"pin\": \"/api/transactions\",\n  \"payload\": \"{\\\"status\\\":\\\"SUCCESS\\\",\\\"amount\\\":500}\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/mock/validate",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "mock", "validate"]
+						}
+					}
+				},
+				{
+					"name": "Sanity Check",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app\": \"PaymentsApp\",\n  \"service\": \"TransactionService\",\n  \"pin\": \"/api/transactions\",\n  \"payload\": \"{\\\"status\\\":\\\"SUCCESS\\\",\\\"amount\\\":500}\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/mock/sanity-check",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "mock", "sanity-check"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin Endpoints",
+			"item": [
+				{
+					"name": "Toggle Mock",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"app\": \"PaymentsApp\",\n  \"service\": \"TransactionService\",\n  \"enabled\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/admin/toggle",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "admin", "toggle"]
+						}
+					}
+				},
+				{
+					"name": "Get Stats",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/admin/stats",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "admin", "stats"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Splunk Integration",
+			"item": [
+				{
+					"name": "Get Failed Services",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/splunk/failed-services",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "splunk", "failed-services"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["actuator", "health"]
+				}
+			}
+		}
+	]
+}
