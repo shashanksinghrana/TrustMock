@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trustmock-ai-service"
+version = "1.0.0"
+description = "TrustMock AI Service with LangGraph and LangChain"
+authors = [{name = "TrustMock Team"}]
+requires-python = ">=3.11"
+dependencies = [
+    # Will be populated when implementing AI features
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0"
+]

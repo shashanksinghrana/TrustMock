@@ -1,0 +1,20 @@
+// AI Service - Python integration
+
+task installPythonDeps(type: Exec) {
+    workingDir projectDir
+    commandLine 'pip', 'install', '-e', '.'
+    description 'Install Python AI service dependencies'
+}
+
+task runAiService(type: Exec) {
+    dependsOn installPythonDeps
+    workingDir projectDir
+    commandLine 'python', '-m', 'uvicorn', 'trustmock_ai.main:app', '--reload', '--port', '8001'
+    description 'Run AI service on port 8001'
+}
+
+task testAiService(type: Exec) {
+    workingDir projectDir
+    commandLine 'python', '-m', 'pytest', 'tests/'
+    description 'Run AI service tests'
+}

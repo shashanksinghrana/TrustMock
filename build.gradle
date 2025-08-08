@@ -1,0 +1,24 @@
+allprojects {
+    group = 'com.trustmock'
+    version = '1.0.0'
+    
+    repositories {
+        mavenCentral()
+    }
+}
+
+// Convenience tasks
+task runBackend {
+    dependsOn ':services:backend:bootRun'
+    description 'Run the backend service'
+}
+
+task buildAll {
+    dependsOn ':services:backend:build'
+    description 'Build all services'
+}
+
+task clean {
+    dependsOn ':services:backend:clean'
+    description 'Clean all services'
+}

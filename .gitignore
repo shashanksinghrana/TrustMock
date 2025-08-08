@@ -6,28 +6,29 @@
 *.ipr
 
 # Java/Gradle
-backend/.gradle/
-backend/build/
-backend/out/
+services/*/.gradle/
+services/*/build/
+services/*/out/
 *.jar
 *.war
 *.ear
 *.class
 .gradletasknamecache
+.gradle/
 
 # Spring Boot
-backend/logs/
-backend/application-*.properties
-backend/application-*.yml
+services/*/logs/
+services/*/application-*.properties
+services/*/application-*.yml
 
 # Node.js/npm
-frontend/node_modules/
-frontend/dist/
-frontend/build/
-frontend/.env.local
-frontend/.env.development.local
-frontend/.env.test.local
-frontend/.env.production.local
+apps/*/node_modules/
+apps/*/dist/
+apps/*/build/
+apps/*/.env.local
+apps/*/.env.development.local
+apps/*/.env.test.local
+apps/*/.env.production.local
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -1,0 +1,7 @@
+rootProject.name = 'trustmock'
+
+include 'services:backend'
+include 'services:ai-service'
+
+project(':services:backend').projectDir = file('services/backend')
+project(':services:ai-service').projectDir = file('services/ai-service')

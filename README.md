@@ -1,30 +1,38 @@
 # TrustMock
 
-A full-stack mock service application with Spring Boot backend and React frontend.
+A full-stack monorepo with microservices architecture supporting Java, React, and Python.
 
 ## Quick Start
 
-### Backend (Java/Spring Boot)
+### Full Development Environment
 ```bash
-cd backend
-./gradlew bootRun
+# Backend
+./gradlew runBackend
 # http://localhost:8080/api/health
-```
 
-### Frontend (React/TypeScript)
-```bash
-cd frontend
-npm install
-npm run dev
+# Frontend (separate terminal)
+cd apps/frontend
+npm install && npm run dev
 # http://localhost:5173
 ```
 
-## Project Structure
+## Monorepo Structure
 ```
 TrustMock/
-├── backend/          # Spring Boot API (Java 21)
-├── frontend/         # React + TypeScript + Vite
-└── docs/            # Documentation
+├── services/
+│   ├── backend/      # Spring Boot API (Java 21)
+│   └── ai-service/   # Python AI/ML service (future)
+├── apps/
+│   └── frontend/     # React + TypeScript + Vite
+├── docs/            # Documentation
+└── shared/          # Shared utilities (future)
+```
+
+## Development Commands
+```bash
+./gradlew buildAll    # Build all services
+./gradlew runBackend  # Run backend service
+./gradlew clean       # Clean all services
 ```
 
 ## APIs
